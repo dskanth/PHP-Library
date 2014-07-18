@@ -468,6 +468,30 @@ class Extra {
 			return $err->getMessage();
 		}
 	}
+	
+	/**
+	 * Function retrieves the IP address of the client
+	 * @return <string> IP address of the client
+	 * @category Extra
+	 * <code>
+	 *  $result = Extra::getClientIP();
+	 * </code>
+	 */
+	function getClientIP() {
+		try {
+			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {   //check ip from share internet
+				$ip = $_SERVER['HTTP_CLIENT_IP'];
+			} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {   //to check ip is pass from proxy
+				$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+			} else {
+				$ip = $_SERVER['REMOTE_ADDR'];
+			}
+			
+			return $ip;
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
 
 }
 
