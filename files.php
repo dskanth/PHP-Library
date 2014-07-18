@@ -569,6 +569,29 @@ class Files {
 			return $err->getMessage();
 		}
 	}
+	
+	/**
+	 * Using glob to search for files
+	 * @param <string> $globSearchText Glob search text to search for files
+	 * @return <array> Array containing glob search matched files
+	 * @category Files
+	 * <code>
+	 *  $result = Files::getFilesByGlob('../images/a*.jpg');
+	 * </code>
+	 */
+	function getFilesByGlob($globSearchText) {
+		try {
+			// using glob to search for the files
+			$files = glob($globSearchText);
+
+			// applies the function to each array element
+			$files = array_map('realpath', $files);
+
+			return $files;
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
 
 }
 
