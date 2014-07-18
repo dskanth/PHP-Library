@@ -21,3 +21,5 @@ Categories are organised into files as follows:
 <strong>strings.php</strong> - Contains all PHP functions that can be used with strings
 
 <strong>validation.php</strong> - Contains all PHP functions that can be used with validations
+
+Please feel free to contact me (heinkasner at gmail dot com) if you have something to add to this library.
