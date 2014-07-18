@@ -18,6 +18,8 @@ Categories are organised into files as follows:
 
 <strong>files.php</strong> - Contains all PHP functions that can be used with files & directories
 
+<strong>images.php</strong> - Contains all PHP functions that can be used with images
+
 <strong>strings.php</strong> - Contains all PHP functions that can be used with strings
 
 <strong>validation.php</strong> - Contains all PHP functions that can be used with validations
