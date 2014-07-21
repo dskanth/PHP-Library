@@ -492,6 +492,33 @@ class Extra {
 			return $err->getMessage();
 		}
 	}
+	
+	/**
+	 * Function unregisters global settings
+	 * @return <boolean> Whether settings were unregistered successfully or not
+	 * @category Extra
+	 * <code>
+	 *  $result = Extra::unregisterGlobals();
+	 * </code>
+	 */
+	function unregisterGlobals() {
+		try {
+			if (ini_get('register_globals')) {
+				$array = array('_SESSION', '_POST', '_GET', '_COOKIE', '_REQUEST', '_SERVER', '_ENV', '_FILES');
+				foreach ($array as $value) {
+					foreach ($GLOBALS[$value] as $key => $var) {
+						if ($var === $GLOBALS[$key]) {
+							unset($GLOBALS[$key]);
+						}
+					}
+				}
+			}
+	
+			return true;
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
 
 }
 
