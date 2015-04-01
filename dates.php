@@ -1,7 +1,13 @@
 <?php
 
 class Dates {
-
+		
+	CONST GMT = 0;
+	CONST IST = 5.5;
+	CONST CST = -5;
+	CONST DUBAI = 4;
+	CONST MELBOURNE = 11;
+		
 	/**
 	 * Displays a dropdown list containing the days 1 - 31 with the current day selected
 	 * @category Dates
@@ -240,7 +246,29 @@ class Dates {
 			return $err->getMessage();
 		}
 	}
+	
+	/**
+	 * Returns the current time on a different timezone
+	 * @param <string> $from Timezone to be converted from
+	 * @param <string> $to Timezone to be converted to
+	 * @param <string> $time Time to be manipulated to other timezone
+	 * @return <string> current time at the destination zone
+	 * @category Dates
+	 * <code>
+	 *  $t = $d->getZonesTime($from, $to, $time);
+	 * </code>
+	 */
+	function getZonesTime($from, $to, $time) {
+		
+		$diff1 = self::GMT - constant("Dates::$from");
+		$diff2 = constant("Dates::$to") - self::GMT;
+		
+		$diff = $diff1 + $diff2;
+		$m = $diff * 60; // in seconds
 
+		$t = date("Y-m-d ".$time);
+		$newtimestamp = strtotime($t. $m.' minute');
+		return '<h1>'.$to.' at '.$time.' '.$from.': '.date('H:i:s', $newtimestamp);
+	}
 }
-
 ?>
