@@ -620,6 +620,25 @@ class Strings {
 			return $err->getMessage();
 		}
 	}
+	
+	/**
+	 * Checks if a string contains specific words
+	 * @param <string> $str The main String
+	 * @param <string> $substr The sub String to find
+	 * @return <boolean> true or false
+	 * @category Strings
+	 * <code>
+	 *  $contains = $s->checkContains($str, $find);
+	 * </code>
+	 */
+	function checkContains($str, $substr) {
+		if (strpos($str, $substr) !== false) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 }
 

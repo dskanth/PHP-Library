@@ -115,20 +115,42 @@ class Arrays {
 	}
 
 	/**
-	 * Prints the items in a specific array
+	 * Prints the items in a specific array, each in a line
 	 * @param <array> $arr Array ob objects to print out
+	 * @return <string> elements of array, each in a line
 	 * @category Arrays
 	 * <code>
 	 *  Arrays::printArray(array('3', '2', NULL, '1', '', '3'));
 	 * </code>
 	 */
 	function printArray($arr) {
-		try {
-			foreach ($arr as $object) {
-				echo $object, "<br />";
+		if(is_array($arr) && count($arr) > 0) {
+			try {
+				foreach ($arr as $object) {
+					echo $object, "<br />";
+				}
+			} catch (Exception $err) {
+				return $err->getMessage();
 			}
-		} catch (Exception $err) {
-			return $err->getMessage();
+		}
+	}
+	
+	/**
+	 * Checks if the array contains an element
+	 * @param <array> $arr The main Array
+	 * @param <string> $find The element to find
+	 * @return <boolean> true or false
+	 * @category Arrays
+	 * <code>
+	 *  $contains = $a->inArray($arr, $find);
+	 * </code>
+	 */
+	function inArray($arr, $find) {
+		if(in_array($find, $arr)) {
+			return true;
+		}
+		else {
+			return false;
 		}
 	}
 
