@@ -24,4 +24,4 @@ Categories are organised into files as follows:
 
 <strong>validation.php</strong> - Contains all PHP functions that can be used with validations
 
-Please feel free to contact me (heinkasner at gmail dot com) if you have something to add to this library.
+Please feel free to contact me (dskanth.99 at gmail dot com) if you have something to ask me, or add to this library.
